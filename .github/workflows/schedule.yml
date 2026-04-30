@@ -7,5 +7,5 @@ jobs:
   schedule-job:
     runs-on: ubuntu-latest
     steps:
-      - print: schedule message
+      - name: print schedule message
         run: echo "workflow run everyday at mid night"
