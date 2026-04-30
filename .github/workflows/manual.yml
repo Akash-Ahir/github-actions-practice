@@ -16,6 +16,6 @@ jobs:
  manual-job:
    runs-on: ubuntu-latest
    steps:
-       - name: print the env
-         run: |
-          echo "The environment: ${{ inputs.environment }}"
+     - name: print the env
+       run: |
+        echo "The environment: ${{ inputs.environment }}"
