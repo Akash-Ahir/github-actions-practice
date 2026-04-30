@@ -1,21 +1,21 @@
-name: manual Run
+name: Manual Run
 
 on:
   workflow_dispatch:
     inputs:
       environment:
-        description: the env where this will run
-        default: 'dev'
+        description: "The env want to run in "
+        default: "dev"
         required: true
         type: choice
         options:
           - dev
           - main
-          
+
 jobs:
- manual-job:
-   runs-on: ubuntu-latest
-   steps:
-     - name: print the env
-       run: |
-        echo "The environment: ${{ inputs.environment }}"
+  manual-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the env
+        run: |
+          echo "The environment: ${{ inputs.environment }}"
