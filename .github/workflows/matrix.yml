@@ -11,9 +11,13 @@ jobs:
   matrix-test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
         python-version: ["3.10", "3.11", "3.12"]
+        exclude:
+          - os: windows-latest
+            python-version: "3.10"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,6 +26,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+
+
+      - name: Print matrix info
+        run: echo "Running on ${{ matrix.os }} with Python ${{ matrix.python-version }}"
 
       - name: Print Python version
         run: python --version
