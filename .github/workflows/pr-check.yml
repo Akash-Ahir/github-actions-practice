@@ -16,6 +16,6 @@ jobs:
     steps:
       - name: Print branch name
         run: |
-          echo "PR check running for branch: ${{ github.head_ref }}"
+          echo "PRs check running for branch: ${{ github.head_ref }}"
 
 
