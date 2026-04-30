@@ -1,0 +1,12 @@
+
+name: Daily Schedule
+
+on: 
+  schedual:
+    - cron: `0 0 * * *
+jobs:
+  schedual-job:
+    runs-on: ubuntu-latest
+    steps:
+      - print schedual message
+        run: echo "workflow run everyday at mid night"
