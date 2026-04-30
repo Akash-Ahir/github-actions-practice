@@ -8,14 +8,14 @@ on:
         default: 'dev'
         required: true
         type: choice
-        option:
+        options:
           - dev
           - main
           
 jobs:
  manual-job:
-   runs-on:
-     steps:
+   runs-on: ubuntu-latest
+   steps:
        - name: print the env
          run: |
           echo "The environment: ${{ inputs.environment }}"
