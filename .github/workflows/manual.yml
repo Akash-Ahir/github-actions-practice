@@ -17,5 +17,5 @@ jobs:
    runs-on:
      steps:
        - name: print the env
-       - run: |
+         run: |
           echo "The environment: ${{ inputs.environment }}"
