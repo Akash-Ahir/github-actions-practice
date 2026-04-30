@@ -1,0 +1,20 @@
+name: Manual Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: the env where this will run
+        default: 'dev'
+        required: true
+        type: choice
+        option:
+          - dev
+          - main
+          
+jobs:
+ manual-job:
+   runs-on:
+     steps:
+       - name: print the env
+       - run: echo "The environment: ${{ inputs.environment }}"
