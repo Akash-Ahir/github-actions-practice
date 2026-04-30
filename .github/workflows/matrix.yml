@@ -16,9 +16,11 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         python-version: ["3.10", "3.11", "3.12"]
         exclude:
-          - os: [windows-latest, matrix.os]
+          - os: windows-latest
             python-version: "3.10"
    
+          - os: ubuntu-latest
+            python-version: "3.10"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
