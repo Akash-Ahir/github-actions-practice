@@ -9,5 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: print 
+      - name: print output
         run: echo "Building the app"
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print output
+        run: echo "Runnning Tests"
+  deploy:
+    steps:
+      - name: print outpput
+        run: echo "Deploying"
