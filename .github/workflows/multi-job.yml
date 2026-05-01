@@ -9,5 +9,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 
+      - name: print 
         run: echo "Building the app"
