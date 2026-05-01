@@ -1,0 +1,24 @@
+name: 3-OS Hosted Runners
+on: 
+  push
+jobs:
+  ubuntu-runner-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "OS: $(uname -s)"
+      - run: echo "Hostname: $(hostname)"
+      - run: echo "User: $(whoami)"
+  
+  windows-runner-job:
+    runs-on: windows-latest
+    steps:
+      - run: echo "OS: Windows"
+      - run: hostname
+      - run: whoami
+  
+  macos-runner-job:
+    runs-on: macos-latest
+    steps:
+      - run: echo "OS: $(uname -s)"
+      - run: hostname
+      - run: whoami
