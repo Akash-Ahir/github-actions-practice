@@ -16,4 +16,4 @@ jobs:
           ls
           
           chmod +x hello.sh
-          ./hello.sih
+          ./hello.sh
