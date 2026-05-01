@@ -1,0 +1,16 @@
+name: Self-Hosted Runner Test
+
+on: [push]
+
+jobs:
+  self-hosted:
+    runs-on: self-hosted
+    steps:
+        run: |
+          hostname  
+        run: |
+          pwd
+        run: |
+          echo "Hello from my runner!" > /tmp/runner-test.txt
+        run: |
+          ls -la /tmp/runner-test.txt
