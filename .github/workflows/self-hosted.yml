@@ -4,8 +4,7 @@ on: [push]
 
 jobs:
   self-hosted:
-    runs-on: self-hosted
-
+    runs-on: [self-hosted, my-linux-runner]
     steps:
       - name: task to do
         run: |
@@ -17,4 +16,4 @@ jobs:
           ls
           
           chmod +x hello.sh
-          ./hello.sh
+          ./hello.sih
