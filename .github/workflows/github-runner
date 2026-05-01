@@ -1,27 +1,36 @@
 name: 3-OS Hosted Runners
-on: 
-  push: [main, master]
+
+on:
+  push:
+  workflow_dispatch:
+
 jobs:
   ubuntu-runner-job:
     runs-on: ubuntu-latest
     steps:
-      - name: show info of ubuntu
-      - run: echo "OS: $(uname -s)"
-      - run: echo "Hostname: $(hostname)"
-      - run: echo "User: $(whoami)"
-  
+      - name: Print OS
+        run: echo "OS: $(uname -s)"
+      - name: Print hostname
+        run: echo "Hostname: $(hostname)"
+      - name: Print user
+        run: echo "User: $(whoami)"
+
   windows-runner-job:
     runs-on: windows-latest
     steps:
-      - name: show info of window
-      - run: echo "OS: Windows"
-      - run: hostname
-      - run: whoami
-  
+      - name: Print OS
+        run: echo "OS: Windows"
+      - name: Print hostname
+        run: hostname
+      - name: Print user
+        run: whoami
+
   macos-runner-job:
     runs-on: macos-latest
     steps:
-      - name: show info of macos
-      - run: echo "OS: $(uname -s)"
-      - run: hostname
-      - run: whoami
+      - name: Print OS
+        run: echo "OS: $(uname -s)"
+      - name: Print hostname
+        run: hostname
+      - name: Print user
+        run: whoami
