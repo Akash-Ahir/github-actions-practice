@@ -14,11 +14,11 @@ jobs:
         run: |
          python --version
 
-      - node version
+      - name: node version
         run: |
          node -v
 
-      - git version
+      - name: git version
         run: |
           git --version
 
