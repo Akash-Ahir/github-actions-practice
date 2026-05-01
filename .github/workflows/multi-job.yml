@@ -2,7 +2,7 @@ name: multi-job
 
 on:
   push:
-    brances: [main, master]
+    branches: [main, master]
   workflow_dispatch:
 
 jobs:
