@@ -13,26 +13,34 @@ jobs:
         run: |
           echo "OS: $(uname -s)"
       - name: Show hostname
-        run: echo "Hostname: $(hostname)"
+        run: |
+          echo "Hostname: $(hostname)"
       - name: Show user
-        run: echo "User: $(whoami)"
+        run: |
+          echo "User: $(whoami)"
 
   windows-runner-job:
     runs-on: windows-latest
     steps:
       - name: Show Windows OS info
-        run: echo "OS: Windows"
+        run: |
+          echo "OS: Windows"
       - name: Show hostname
-        run: hostname
+        run: |
+          hostname
       - name: Show user
-        run: whoami
+        run: | 
+          whoami
 
   macos-runner-job:
     runs-on: macos-latest
     steps:
       - name: Show macOS OS info
-        run: echo "OS: $(uname -s)"
+        run: |
+          echo "OS: $(uname -s)"
       - name: Show hostname
-        run: hostname
+        run: |
+          hostname
       - name: Show user
-        run: whoami
+        run:  |
+        whoami
