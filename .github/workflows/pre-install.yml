@@ -10,4 +10,15 @@ jobs:
         run: |
          docker --version 
 
+      - python version
+        run: |
+         python --version
+
+      - node version
+        run: |
+         node -v
+
+      - git version
+        run: |
+          git --version
 
