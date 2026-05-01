@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show info of ubuntu os
-        run: echo "OS: $(uname)"
+        run: echo "OS: $(uname -s)"
       - name: show hostname
         run: echo "Hostname: $(hostname)"
       - name: show user
