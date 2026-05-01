@@ -2,7 +2,7 @@ name: Matrix Text
 
 on:
   #push:
-    branches:
+   # branches:
    #   - main
     #  - dev
   workflow_dispatch:
