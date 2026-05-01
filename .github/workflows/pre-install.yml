@@ -10,7 +10,7 @@ jobs:
         run: |
          docker --version 
 
-      - python version
+      - name: python version
         run: |
          python --version
 
