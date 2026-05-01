@@ -19,4 +19,4 @@ jobs:
     steps:
       - name: use date
         run: |
-          echo "todays date: ${{ needs.date.outputs.today }}
+          echo "todays date: ${{ needs.date.outputs.today }}"
