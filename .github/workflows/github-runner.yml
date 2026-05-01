@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show info of ubuntu os
-      - run: echo "OS: $(uname -s)"
+      - run: echo "OS: $(uname )"
       - name: show hostname
       - run: echo "Hostname: $(hostname)"
       - name: show user
@@ -27,7 +27,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: show os name 
-      - run: echo "OS: $(uname -s)"
+      - run: echo "OS: $(uname )"
       - name: show hostname
       - run: hostname
       - name: show user
