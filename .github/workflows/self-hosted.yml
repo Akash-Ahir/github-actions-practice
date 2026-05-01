@@ -1,15 +1,20 @@
-name: Self-Hosted Runner Test
+name: Self-Hosted Runner
 
 on: [push]
 
 jobs:
   self-hosted:
     runs-on: self-hosted
-    steps: 
-      - name: task 
+
+    steps:
+      - name: task to do
         run: |
-          hostname  
+          hostname
           pwd
-          echo -e '#!/bin/bash\necho "Hello from runner!"' > /actions-runner/_work/github-actions-practice/github-actions-practice/hello.sh
-          sudo chmod +x hello.sh
-          sudo ./hello.sh
+
+          echo -e '#!/bin/bash\necho "Hello from runner!"' > hello.sh
+          
+          ls
+          
+          chmod +x hello.sh
+          ./hello.sh
