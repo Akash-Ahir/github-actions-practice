@@ -42,5 +42,5 @@ jobs:
         run: |
           hostname
       - name: Show user
-        run:  |
-        whoami
+        run: |
+          whoami
