@@ -18,11 +18,16 @@ jobs:
           echo "Repository: $GITHUB_REPOSITORY" >> report.txt
           echo "Actor: $GITHUB_ACTOR" >> report.txt
 
+      - name: Verify file exists
+        run: |
+          ls -l
+          cat report.txt
+
       - name: Upload report artifact
         uses: actions/upload-artifact@v4
         with:
           name: report
-          path: $GITHUB_WORKSPACE/report.txt
+          path: report.txt
 
   use-file:
     runs-on: ubuntu-latest
@@ -33,7 +38,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: report
-          path: $GITHUB_WORKSPACE/
+          path: downloaded-artifact
+
+      - name: Verify downloaded file
+        run: |
+          ls -R downloaded-artifact
 
       - name: Print artifact content
-        run: cat $GITHUB_WORKSPACE/report.txt
+        run: cat downloaded-artifact/report.txt
