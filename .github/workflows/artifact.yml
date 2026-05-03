@@ -11,17 +11,16 @@ jobs:
     steps:
       - name: Create report file
         run: |
-          mkdir -p output
-          echo "log file in workflow" > output/report.txt
-          echo "Run ID: ${{ github.run_id }}" >> output/report.txt
-          echo "Current date and time: $(date)" >> output/report.txt
-          echo "Commit: ${{ github.sha }}" >> output/report.txt
-          echo "Repository: $GITHUB_REPOSITORY" >> output/report.txt
-          echo "Actor: $GITHUB_ACTOR" >> output/report.txt
+          echo "log file in workflow" > report.txt
+          echo "Run ID: ${{ github.run_id }}" >> report.txt
+          echo "Current date and time: $(date)" >> report.txt
+          echo "Commit: ${{ github.sha }}" >> report.txt
+          echo "Repository: $GITHUB_REPOSITORY" >> report.txt
+          echo "Actor: $GITHUB_ACTOR" >> report.txt
 
       - name: Upload report artifact
         uses: actions/upload-artifact@v4
         with:
           name: report.txt
-          path: output/report.txt
+          path: report.txt
           if-no-files-found: error
