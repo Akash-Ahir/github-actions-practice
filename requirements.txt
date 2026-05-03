@@ -1,5 +1,1 @@
 pytest
-pip
-venv
-Poetry
-Conda
