@@ -1,0 +1,40 @@
+name: CI-script
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test-log-rotation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show repository files
+        run: |
+          ls -R
+          ls -R scripts
+
+      - name: Prepare sample logs
+        run: |
+          mkdir -p logs
+          echo "old log data" > logs/old-app.log
+          echo "new log data" > logs/new-app.log
+
+      - name: Make one log old enough for rotation
+        run: |
+          touch -d "8 days ago" logs/old-app.log
+          ls -l logs
+
+      - name: Make script executable
+        run: chmod +x scripts/log_rotate.sh
+
+      - name: Run log rotation script
+        run: ./scripts/log_rotate.sh logs
+
+      - name: Show logs after script run
+        run: |
+          echo "Files after rotation:"
+          find logs -maxdepth 2 -type f | sort
