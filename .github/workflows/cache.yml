@@ -1,4 +1,4 @@
-name: Cache Demo
+name: Cache Testing
 
 on:
   push:
