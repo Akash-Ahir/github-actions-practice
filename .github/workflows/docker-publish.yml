@@ -10,6 +10,8 @@ on:
 jobs:
   build-image:
     runs-on: ubuntu-latest
+    env:
+      DOCKER_IMAGE: akashahir/ai-bank-app
 
     steps:
       - name: code-checkout
