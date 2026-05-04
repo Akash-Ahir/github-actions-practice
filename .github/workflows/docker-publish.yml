@@ -17,7 +17,10 @@ jobs:
 
       - name: build docker image
         working-directory: AI-BankApp
-        run: docker build -t AI-bank-app .
+        run: docker build -t ai-bank-app .
 
       - name: Tag docker images
-        run: docker tag AI-bank-app akashahir/Ai-bank-app:latest
+        run: docker tag ai-bank-app akashahir/ai-bank-app:latest
+
+      - name: list images
+        run: docker images
