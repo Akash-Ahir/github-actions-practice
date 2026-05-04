@@ -1,0 +1,63 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    secrets:
+      - mysql_root_password
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$(cat /run/secrets/mysql_root_password) || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 60s 
+    networks:
+      - bankapp-nw
+    ports:
+      - "${MYSQL_PORT_EXPOSE}:3306"
+    volumes: 
+      - mysql-data:/var/lib/mysql
+
+  bankapp:
+    build: .
+    container_name: bankapp
+    ports:
+      - "${APP_PORT}:8080"
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}  
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      OLLAMA_URL: ${OLLAMA_URL}
+    secrets:
+      - mysql_root_password
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - bankapp-nw
+  
+  ollama:
+    image: ollama/ollama
+    container_name: ollama-container
+    ports: 
+      - "11434:11434"
+    networks:
+      - bankapp-nw
+    volumes:
+      - ollama_data:/root/.ollama
+networks:
+  bankapp-nw:
+    driver: bridge
+
+volumes:
+  mysql-data:
+  ollama_data:
+
+secrets:
+  mysql_root_password:
+    file: ./secrets/mysql_root_password.txt
+
