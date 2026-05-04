@@ -1,0 +1,22 @@
+name: Docker publish
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code-checkout
+        uses: actions/checkout@v4
+
+      - name: build docker image
+        working-directory: /home/ubuntu/github-actions-practice/AI-BankApp
+        run: docker build -t AI-bank-app .
+       
+      - name: Tag docker images
+        run: docker tag AI-bank-app akashahir/Ai-bank-app:latest
