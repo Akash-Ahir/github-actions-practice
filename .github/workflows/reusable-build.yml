@@ -5,8 +5,8 @@ on:
     inputs:
       app_name:
         description: "Name of the application"
-          type: string
-          required: true
+        type: string
+        required: true
       environment: 
         description: "Env for deployment"
         required: true
