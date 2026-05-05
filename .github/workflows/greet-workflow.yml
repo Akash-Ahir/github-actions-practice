@@ -21,4 +21,5 @@ jobs:
           language: "marathi"
 
       - name: Show greeted output
-        run: echo "Greeted output: ${{ steps.greet.outputs.greeted }}"
+        run: |
+          echo "Greeted output: ${{ steps.greet.outputs.greeted }}"
