@@ -1,0 +1,48 @@
+name: Setup and Greet
+
+inputs:
+  name:
+    description: "Name of the person"
+    required: true
+  language:
+    description: "Language for the greeting (en, hindi, marathi)"
+    required: false
+    default: "en"
+
+outputs:
+  greeted:
+    description: "greeting step verify"
+    value: ${{ steps.mark-greeted.outputs.greeted }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Show basic environment info
+      shell: bash
+      run: |
+        echo "Current date: $(date)"
+        echo "Runner OS: $RUNNER_OS"
+
+    - name: Print greeting
+      shell: bash
+      run: |
+        case "${{ inputs.language }}" in
+          en)
+            echo "Hello, ${{ inputs.name }}!"
+            ;;
+          hindi)
+            echo "नमस्ते, ${{ inputs.name }}!"
+            ;;
+          marathi)
+            echo "नमस्कार, ${{ inputs.name }}!"
+            ;;
+          *)
+            echo "Hello, ${{ inputs.name }}! (unknown language '${{ inputs.language }}', using English)"
+            ;;
+        esac
+
+    - name: Mark greeted
+      id: mark-greeted
+      shell: bash
+      run: |
+        echo "greeted=true" >> $GITHUB_OUTPUT
