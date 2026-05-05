@@ -1,0 +1,24 @@
+name: Use Composite Greet Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run setup-and-greet action
+        id: greet
+        uses: ./.github/actions/setup-and-greet
+        with:
+          name: "Shubham"
+          language: "marathi"
+
+      - name: Show greeted output
+        run: echo "Greeted output: ${{ steps.greet.outputs.greeted }}"
