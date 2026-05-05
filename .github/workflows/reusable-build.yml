@@ -18,7 +18,7 @@ on:
         required: true
 
 jobs: 
-  build:
+  reusable:
     runs-on: ubuntu-latest
     steps:
       - name: Check whether docker token exists
