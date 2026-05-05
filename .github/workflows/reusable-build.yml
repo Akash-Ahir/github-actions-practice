@@ -21,7 +21,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    steps:
       - name: Check whether docker token exists
         run: |
           if [ -n "${{ secrets.DOCKER_TOKEN}}" ]; then
