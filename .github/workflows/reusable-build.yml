@@ -28,9 +28,8 @@ jobs:
           else
             echo "The docker token is set: false"
           fi
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
+        
+      - name: Show build info
         run: |
-          echo "Building ${ { inputs.app_name } } for ${ { inputs.environment } }"
+          echo "Building ${{ inputs.app_name }} for ${{ inputs.environment }}"
           
