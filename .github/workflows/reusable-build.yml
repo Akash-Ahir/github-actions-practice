@@ -25,6 +25,9 @@ jobs:
   reusable:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
       - name: Check whether docker token exists
         run: |
           if [ -n "${{ secrets.DOCKER_TOKEN}}" ]; then
