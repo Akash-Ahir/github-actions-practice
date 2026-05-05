@@ -24,7 +24,7 @@ jobs:
       - name: Check whether docker token exists
         run: |
           if [ -n "${{ secrets.DOCKER_TOKEN}}" ]; then
-            echo "The docker token is set: true"
+            echo "The docker token iss set: true"
           else
             echo "The docker token is set: false"
           fi
