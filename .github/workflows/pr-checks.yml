@@ -31,4 +31,23 @@ jobs:
       - name: reads the branch name
         run: echo "Branch:${{ github.head_ref }}"
 
+        if [[ "$branch" =~ ^feature\/.+ ]] || [[ "$branch" =~ ^fix\/.+ ]] || [[ "$branch" =~ ^docs\/.+ ]]; then
+              echo "Branch name is valid."
+            else
+              echo "Invalid branch name. Use feature/*, fix/*, or docs/*"
+              exit 1
+            fi
+ 
+  pr-body-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pr body
+        run: |
+          echo "Pr-Body:${{ github.event.pull_request.body }}"
 
+
+          if [ -z "$body" ] || [ "$body" = "null" ]; then
+            echo "::warning::PR description is empty. Add context for reviewers."
+          else
+            echo "PR description is present."
+          fi
