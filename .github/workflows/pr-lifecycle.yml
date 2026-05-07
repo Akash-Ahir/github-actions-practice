@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize, reopened, closed]
 
 jobs:
-  print info:
+  print-info:
     runs-on: ubuntu-latest
     steps:
       - name: Event Type Fired
