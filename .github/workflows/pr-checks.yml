@@ -1,4 +1,4 @@
-name: pull request check
+name: pull-request check
 
 on:
   pull_request:
@@ -10,10 +10,12 @@ jobs:
     steps:
       - name: code checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: fails pr if any file is more than 1MB
         run: |
-          Files=$(git diff --name-only origin/${{ github.base_ref }} HEAD)
+          Files=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
 
           for file in $Files; do
             if [ -f "$file" ]; then
@@ -33,7 +35,9 @@ jobs:
         run: |
           echo "Branch:${{ github.head_ref }}"
 
-          if [[ "${{ github.head_ref }}" =~ ^feature\/.+ ]] || [[ "${{ github.head_ref }}" =~ ^fix\/.+ ]] || [[ "${{ github.head_ref }}" =~ ^docs\/.+ ]]; then
+          if [[ "${{ github.head_ref }}" =~ ^feature\/.+ ]] || \
+             [[ "${{ github.head_ref }}" =~ ^fix\/.+ ]] || \
+             [[ "${{ github.head_ref }}" =~ ^docs\/.+ ]]; then
             echo "Branch name is valid."
           else
             echo "Invalid branch name. Use feature/*, fix/*, or docs/*"
