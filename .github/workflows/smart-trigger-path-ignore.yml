@@ -1,0 +1,22 @@
+name: Smart Triggers
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/*'
+    paths-ignore:
+      - '*.md'
+      - 'docs/**' 
+
+jobs:
+  run-on-code-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code checkout 
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Print changed files
+        run: git diff --name-only HEAD~1 HEAD
