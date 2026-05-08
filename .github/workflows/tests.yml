@@ -14,3 +14,4 @@ jobs:
         run: |
           echo "Running tests..."
           echo "All tests passed."
+          exit 1
