@@ -15,6 +15,6 @@ jobs:
            echo "workflow run successful"
          else
            echo "Tests did not succeed."
-           echo "Skipping deploy."
+           echo "Skipping to deploy."
            exit 1
          fi 
