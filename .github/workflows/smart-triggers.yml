@@ -13,5 +13,5 @@ jobs:
   run-on-code-changes:
     runs-on: ubuntu-latest
     steps:
-      - name: Print trigger info
-        run: echo "Workflow ran because src/ or app/ changed on an allowed branch."
+      - name: Print changed files
+        run: git diff --name-only HEAD~1 HEAD
