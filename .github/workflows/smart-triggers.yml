@@ -3,7 +3,7 @@ name: smart branch trigger
 on:
   push:
     branches: [mainfeature/my-update]
-  paths:
+    paths:
       - 'src/**'
       - 'app/**'
 jobs:
