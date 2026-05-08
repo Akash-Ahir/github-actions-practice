@@ -1,0 +1,23 @@
+name: smart branch trigger
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'app/**'
+jobs:
+  changes-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-dept: 0
+
+      - name: print
+        run: |
+          Files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          for file in $Files; do
+            echo "$file"
+          done
