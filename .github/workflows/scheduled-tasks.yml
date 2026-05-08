@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  schedule-trigger:
+  schedule trigger:
     runs-on: ubuntu-latest
     steps:
       - name: schedule trigger by
