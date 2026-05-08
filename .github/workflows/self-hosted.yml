@@ -1,6 +1,7 @@
 name: Self-Hosted Runner
 
-on: [push]
+#on: [push]
+workflow_dispatch:
 
 jobs:
   self-hosted:
