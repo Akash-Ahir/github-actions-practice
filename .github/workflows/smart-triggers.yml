@@ -1,23 +1,17 @@
-name: smart branch trigger
+name: Smart Triggers
 
 on:
   push:
-    branches: [mainfeature/my-update]
+    branches:
+      - main
+      - 'release/*'
     paths:
       - 'src/**'
       - 'app/**'
+
 jobs:
-  changes-run:
+  run-on-code-changes:
     runs-on: ubuntu-latest
     steps:
-      - name: code checkout
-        uses: actions/checkout@v5
-        with:
-          fetch-dept: 0
-
-      - name: print
-        run: |
-          Files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-          for file in $Files; do
-            echo "$file"
-          done
+      - name: Print trigger info
+        run: echo "Workflow ran because src/ or app/ changed on an allowed branch."
