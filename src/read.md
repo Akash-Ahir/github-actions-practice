@@ -1,1 +1,1 @@
-hi this is for testing purpose
+hi this is for testing purpose of smart trigger.yml
