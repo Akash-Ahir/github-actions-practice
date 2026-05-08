@@ -1,7 +1,7 @@
 name: CI-script
 
 on:
-  push:
+ # push:
   workflow_dispatch:
 
 jobs:
