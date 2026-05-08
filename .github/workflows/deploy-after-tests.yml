@@ -1,3 +1,10 @@
+name: deploy after test
+
+onn:
+  workflow_run:
+    workflows: ["Run Tests"]
+    types: [completed]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
