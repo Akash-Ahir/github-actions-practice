@@ -16,4 +16,5 @@ jobs:
          else
            echo "Tests did not succeed."
            echo "Skipping deploy."
-    
+           exit 1
+         fi 
