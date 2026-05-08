@@ -13,5 +13,8 @@ jobs:
   run-on-code-changes:
     runs-on: ubuntu-latest
     steps:
+      - name: code checkout 
+        uses: actions/checkout@v4
+   
       - name: Print changed files
         run: git diff --name-only HEAD~1 HEAD
