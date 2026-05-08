@@ -1,6 +1,6 @@
 name: deploy after test
 
-onn:
+on:
   workflow_run:
     workflows: ["Run Tests"]
     types: [completed]
