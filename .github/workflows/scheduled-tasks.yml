@@ -1,0 +1,21 @@
+name: schedule cron job
+
+on:
+  schedule:
+    - cron: '30 2 * * 1'
+    - cron: '0 */6 * * *'
+  
+  workflow_dispatch:
+
+jobs:
+  schedule-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: schedule trigger by
+        run: |
+          echo "schedule trigger by : ${{ github.event.schedule }}"
+          echo "Manual run if empty or not scheduled."      
+      
+      - name: health-check
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" http
