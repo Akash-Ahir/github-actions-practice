@@ -1,4 +1,4 @@
-name: Smart Triggers
+name: Smart Triggers path ignore
 
 on:
   push:
