@@ -17,5 +17,5 @@ jobs:
       
       - name: health-check
         run: |
-          code=$(curl -s -o /dev/null -w "%{http_code}" www.google.com)
-          echo "Response code from wwww.google.com :" $code
+          code=$(curl -s -o /dev/null -w "%{http_code}" https://www.google.com)
+          echo "Response code from www.google.com : $code"
