@@ -1,0 +1,15 @@
+name: external triggere
+
+on:
+  repository_dispatch:
+    types: [deploy-request]
+
+jobs:
+  
+  print:
+    runs-on: ubuntu-latest
+
+    steps:
+     
+      - name: Print client payload
+        run: echo "${{ github.event.client_payload.environment }}"
